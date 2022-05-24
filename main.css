@@ -1,0 +1,47 @@
+body {
+    width: 600px;
+    height: 600px;
+    position: relative;
+    /*background-image: url("https://assets.hassellstudio.com/imager/uploads/Open-Source-City_Full-Width_Position01_1920x1080_dae9d742f19b6d4d8e59504c1a71c1db.jpg");*/
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.card-container {
+    position: relative;
+    padding: 20px;
+    top: 15%;
+    left: 50%;
+    /*background-color: rgba(0,0,0, 0.25);*/
+    width: 420px;
+    height: 420px;
+    border-radius: 10%;
+    background-color: rgba(0, 0, 0,0.25);
+}
+.card-container::before {
+    width: 420px;
+    height: 420px;
+    border-radius:10%;
+    position: absolute;
+    background-color: rgba(0, 0, 52,0.25);
+}
+/*.card-container:before {
+    content: "";
+    width: 420px;
+    height: 420px;
+    border-radius:10%;
+    position: absolute;
+    background-color: rgba(0, 0, 0,0.25);
+}*/
+.search-area {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.textbox {
+    position: relative;
+    width: 100%;
+    background-color: #7a8787;
+}

@@ -1,47 +1,158 @@
+/* Neo-Brutalism Weather App */
+:root {
+    --primary: #000000;
+    --secondary: #FFFFFF;
+    --accent: #FF5E5B;
+    --shadow: 6px 6px 0px 0px var(--primary);
+}
+
 body {
-    width: 600px;
-    height: 600px;
-    position: relative;
-    /*background-image: url("https://assets.hassellstudio.com/imager/uploads/Open-Source-City_Full-Width_Position01_1920x1080_dae9d742f19b6d4d8e59504c1a71c1db.jpg");*/
-    background-size: cover;
-    background-repeat: no-repeat;
+    font-family: 'Courier New', monospace;
+    background-color: #F9F9F9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    border: 3px solid var(--primary);
 }
 
 .card-container {
-    position: relative;
-    padding: 20px;
-    top: 15%;
-    left: 50%;
-    /*background-color: rgba(0,0,0, 0.25);*/
-    width: 420px;
-    height: 420px;
-    border-radius: 10%;
-    background-color: rgba(0, 0, 0,0.25);
-}
-.card-container::before {
-    width: 420px;
-    height: 420px;
-    border-radius:10%;
-    position: absolute;
-    background-color: rgba(0, 0, 52,0.25);
-}
-/*.card-container:before {
-    content: "";
-    width: 420px;
-    height: 420px;
-    border-radius:10%;
-    position: absolute;
-    background-color: rgba(0, 0, 0,0.25);
-}*/
-.search-area {
-    position: relative;
-    display: flex;
-    flex-direction: row;
+    background-color: var(--secondary);
+    border: 3px solid var(--primary);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    max-width: 400px;
     width: 100%;
 }
 
+.search-area {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
 .textbox {
-    position: relative;
-    width: 100%;
-    background-color: #7a8787;
+    flex: 1;
+    padding: 12px 15px;
+    border: 3px solid var(--primary);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 16px;
+    resize: none;
+    height: 20px;
+    box-shadow: 3px 3px 0px 0px var(--primary);
+}
+
+.textbox:focus {
+    outline: none;
+    background-color: #FFF8F0;
+}
+
+.button-search {
+    background-color: var(--accent);
+    color: var(--secondary);
+    border: 3px solid var(--primary);
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px 0px var(--primary);
+    transition: all 0.2s ease;
+}
+
+.button-search:hover {
+    background-color: var(--primary);
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px 0px var(--primary);
+}
+
+.information-box {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.city {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.weather {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px;
+    border: 3px solid var(--primary);
+    padding: 5px;
+    background-color: var(--secondary);
+}
+
+.temperature,
+.humidity,
+.wind-speed {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 8px 0;
+}
+
+.temperature::after {
+    content: "°C";
+}
+
+.humidity::before {
+    content: "Humidity: ";
+    color: var(--accent);
+}
+
+.wind-speed::before {
+    content: "Wind: ";
+    color: var(--accent);
+}
+
+/* Loading state */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid var(--primary);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+.icon[src=""] {
+    /* Shows only when src is empty */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="%23000" stroke-width="2"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .card-container {
+        padding: 20px;
+    }
+
+    .city {
+        font-size: 24px;
+    }
+
+    .textbox {
+        font-size: 14px;
+    }
 }

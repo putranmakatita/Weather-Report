@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport">
     <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+New:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="card-container">
         <div class="search-area">
-            <textarea placeholder="enter the name of the city..." class= "textbox" id="data-request"></textarea>
+            <textarea placeholder="enter the name of the city..." class="textbox" id="data-request"></textarea>
             <button class="button-search">🔍</button>
         </div>
         <div class="information-box">
             <h2 class="city"></h2>
             <h3 class="weather"></h3>
-            <img src= "" class="icon">
+            <img style="display: none;" src="" alt="City icon" class="icon">
             <h3 class="temperature"></h3>
             <h3 class="humidity"></h3>
             <h3 class="wind-speed"></h3>
 
         </div>
     </div>
-<script src="main.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
